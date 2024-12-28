@@ -10,13 +10,13 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
     @ExceptionHandler(Exception::class)
     protected fun handleException(e: Exception): ErrorResponse {
         logger.error(e.message, e)
-        return ErrorResponse.of(GlobalErrorCode.INTERNAL_SERVER_ERROR)
+        return ErrorResponse.from(GlobalErrorCode.INTERNAL_SERVER_ERROR)
     }
 
     @ExceptionHandler(BusinessException::class)
     protected fun handleRuntimeException(e: BusinessException): ErrorResponse {
         logger.warn(e.message, e)
-        return ErrorResponse.of(e.errorCode)
+        return ErrorResponse.from(e.errorCode)
     }
 
     @ExceptionHandler(AccessDeniedException::class)
@@ -25,6 +25,6 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
         request: HttpServletRequest,
     ): ErrorResponse {
         logger.warn(e.message, e)
-        return ErrorResponse.of(GlobalErrorCode.ACCESS_DENIED)
+        return ErrorResponse.from(GlobalErrorCode.ACCESS_DENIED)
     }
 }

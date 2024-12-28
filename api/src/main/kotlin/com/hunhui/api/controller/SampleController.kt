@@ -12,11 +12,9 @@ class SampleController : SampleApiDoc {
     override fun ping(): ResponseEntity<SampleResponse> = ResponseEntity.ok(SampleResponse("pong"))
 
     @GetMapping("/error")
-    override fun error() {
-        throw SampleException()
-    }
+    override fun error(): Unit = throw SampleException()
 
     data class SampleResponse(
-        val message: String
+        val message: String,
     )
 }

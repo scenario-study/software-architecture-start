@@ -5,18 +5,17 @@ import org.springframework.http.ResponseEntity
 
 class ErrorResponse private constructor(
     httpStatus: HttpStatus,
-    body: ErrorResponseBody
+    body: ErrorResponseBody,
 ) : ResponseEntity<Any>(body, httpStatus) {
     companion object {
-        fun of(code: ErrorCode): ErrorResponse {
-            return ErrorResponse(
+        fun from(code: ErrorCode): ErrorResponse =
+            ErrorResponse(
                 code.httpStatus,
                 ErrorResponseBody(
                     code = code.code,
-                    message = code.message
-                )
+                    message = code.message,
+                ),
             )
-        }
     }
 
     data class ErrorResponseBody(
