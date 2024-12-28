@@ -5,6 +5,14 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
 }
 
+tasks.jar {
+    enabled = true
+}
+
+tasks.bootJar {
+    enabled = false
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
