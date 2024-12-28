@@ -1,15 +1,12 @@
 package com.hunhui.common.error
 
 import jakarta.servlet.http.HttpServletRequest
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
 
 @RestControllerAdvice
-class GlobalExceptionHandler {
-    private val logger: Logger = LoggerFactory.getLogger(GlobalExceptionHandler::class.java)
-
+class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
     @ExceptionHandler(Exception::class)
     protected fun handleException(e: Exception): ErrorResponse {
         logger.error(e.message, e)
