@@ -14,13 +14,13 @@ data class ApiStatus(
     val message: String,
 ) {
     companion object {
-        fun of(status: SuccessCode): ApiStatus = ApiStatus(status.name, status.message)
+        fun of(status: SuccessCode) = ApiStatus(code = status.code, message = status.message)
 
-        fun of(status: ErrorCode): ApiStatus = ApiStatus(status.name, status.message)
+        fun of(status: ErrorCode) = ApiStatus(code = status.code, message = status.message)
 
         fun of(
             code: String,
             message: String,
-        ): ApiStatus = ApiStatus(code, message)
+        ) = ApiStatus(code = code, message = message)
     }
 }
