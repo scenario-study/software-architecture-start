@@ -1,0 +1,16 @@
+[submodule "cd18"]
+	path = cd18
+	url = https://github.com/scenario-study/software-architecture-start.git
+	branch = cd18
+[submodule "hyeok"]
+	path = hyeok
+	url = https://github.com/scenario-study/software-architecture-start.git
+	branch = hyeok
+[submodule "jhh"]
+	path = jhh
+	url = https://github.com/scenario-study/software-architecture-start.git
+	branch = jhh
+[submodule "octoping"]
+	path = octoping
+	url = https://github.com/scenario-study/software-architecture-start.git
+	branch = octoping
